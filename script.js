@@ -1,3 +1,4 @@
+// initialize the map
 var map = L.map('map').setView([47.25, -122.44], 11);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
@@ -8,6 +9,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_
     
 }).addTo(map);
 
+
+// initialize the routing plugin and add to map
 var control = L.Routing.control({
     waypoints: [
         null
@@ -22,6 +25,7 @@ var control = L.Routing.control({
      geocoder: L.Control.Geocoder.photon(),
 }).addTo(map);
 
+// Add waypoints by clicking on the map
 function createButton(label, container) {
     var btn = L.DomUtil.create('button', '', container);
     btn.setAttribute('type', 'button');
